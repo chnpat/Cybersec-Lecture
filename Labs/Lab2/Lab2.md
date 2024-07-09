@@ -111,3 +111,14 @@ while True:
 ```
 
 5. Try to run the program files.
+
+
+## Challenges
+
+If you completed all the above steps, please try to modify our chat application to accept file transmission. For simplicity, we assume that all client applications have access to a shared storage. The following are steps that your chat application should be proceeded:
+
+1. The client application allows users to select whether they want to send a message or a file.
+2. If the user selects the file transmission, the client will ask for the absolute file path (e.g. "C:/Users/John/Document/test.pdf").
+3. Then, the client application checks the existence of the file and generates the digest of the file (Not the file path).
+4. The client application will then send the absolute file path with the file digest to another client or recipient.
+5. The recipient client application will find a file from the path and then checks the file digest with the actual file.

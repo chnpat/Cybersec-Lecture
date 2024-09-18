@@ -1,12 +1,16 @@
 import socket
 import threading
+from cryptography.fernet import Fernet
 
-SERVER_HOST = "192.168.1.1"   # Please change this to your ip address
+SERVER_HOST = "192.168.20.229"   # Please change this to your ip address
 SERVER_PORT = 25550
 
 clients = []
+key = Fernet.generate_key()
+print(f"Generated key: {key.decode()}") 
 
 def handle_client(client_socket, addr):
+    client_socket.send(key) 
     while True:
         try:
             message = client_socket.recv(1024)
